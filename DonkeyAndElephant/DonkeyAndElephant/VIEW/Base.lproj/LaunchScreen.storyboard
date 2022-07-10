@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvm-sF-9oD">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoadingScreenIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BGz-2j-EjK">
+                                        <rect key="frame" x="95" y="297" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="BGz-2j-EjK" secondAttribute="height" multiplier="1:1" id="Hj8-1b-q5F"/>
+                                            <constraint firstAttribute="height" constant="200" id="oZx-HM-44S"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstItem="BGz-2j-EjK" firstAttribute="centerX" secondItem="Jvm-sF-9oD" secondAttribute="centerX" id="4bw-LG-sOm"/>
+                                    <constraint firstItem="BGz-2j-EjK" firstAttribute="centerY" secondItem="Jvm-sF-9oD" secondAttribute="centerY" constant="-25" id="RB5-I5-dZ8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Jvm-sF-9oD" secondAttribute="bottom" id="Vyx-32-khq"/>
+                            <constraint firstItem="Jvm-sF-9oD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="auS-sb-GvS"/>
+                            <constraint firstItem="Jvm-sF-9oD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="dif-6S-rZB"/>
+                            <constraint firstItem="Jvm-sF-9oD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yaS-2V-5S1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-66.153846153846146" y="97.393364928909946"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LoadingScreenIcon" width="521" height="510"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
