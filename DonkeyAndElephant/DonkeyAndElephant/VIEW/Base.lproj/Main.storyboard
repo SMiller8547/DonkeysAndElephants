@@ -25,24 +25,44 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="inB-da-gXI" userLabel="TableViewCNN">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="328.33333333333331"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" CNN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ksQ-uc-QQK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VCg-EC-CcQ" userLabel="TableViewFOX">
                                                 <rect key="frame" x="0.0" y="348.33333333333337" width="320" height="328.33333333333337"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Fox News" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eLH-41-DC6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </tableView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fVi-77-iRm" userLabel="SearchStack">
-                                        <rect key="frame" x="20" y="706.66666666666663" width="350" height="34.333333333333371"/>
+                                        <rect key="frame" x="33.666666666666657" y="706.66666666666663" width="323" height="34.333333333333371"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Search Term..." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2V-mS-zSs">
-                                                <rect key="frame" x="0.0" y="0.0" width="247.66666666666666" height="34.333333333333336"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Tweet Keyword..." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2V-mS-zSs">
+                                                <rect key="frame" x="0.0" y="0.0" width="220" height="34.333333333333336"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="0qO-sz-XGl"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqQ-J1-1Jb">
-                                                <rect key="frame" x="272.66666666666669" y="0.0" width="77.333333333333314" height="34.333333333333336"/>
-                                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                                <rect key="frame" x="245" y="0.0" width="78" height="34.333333333333336"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="78" id="lLT-du-44z"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Search"/>
                                                 <userDefinedRuntimeAttributes>
@@ -50,18 +70,17 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ETc-Ps-bEg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="fVi-77-iRm" secondAttribute="trailing" constant="40" id="aWx-Q9-lGz"/>
-                                    <constraint firstItem="fVi-77-iRm" firstAttribute="leading" secondItem="26C-XW-5im" secondAttribute="leading" constant="20" id="fzh-h4-phG"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="26C-XW-5im" secondAttribute="bottom" constant="25" id="6jt-ed-zjQ"/>
                             <constraint firstItem="26C-XW-5im" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ac3-IV-UEq"/>
@@ -69,18 +88,21 @@
                             <constraint firstItem="26C-XW-5im" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="anr-Yi-hSw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tweetKeywordTextBox" destination="M2V-mS-zSs" id="gWD-w2-CeD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70.769230769230774" y="3.5545023696682461"/>
+            <point key="canvasLocation" x="69.599999999999994" y="2.9556650246305418"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
