@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  DonkeyVsElephant
+//  DonkeyAndElephant
 //
 //  Created by Sterling Miller on 7/8/22.
 //

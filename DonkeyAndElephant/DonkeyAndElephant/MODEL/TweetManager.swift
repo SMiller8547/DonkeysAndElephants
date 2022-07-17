@@ -13,8 +13,10 @@ protocol TweetManagerDelegate{
 }
 
 class TweetManager{
-    let twitterAPI = "https://api.twitter.com/2/users/1367531/tweets"
+    let twitterAPI = "https://api.twitter.com/2/users/44196397/tweets?max_results=100&tweet.fields=context_annotations&exclude=retweets,replies"
     let bearer_token = "AAAAAAAAAAAAAAAAAAAAAIEfegEAAAAAFZjI%2FV4JRca7WxnNea%2FG9u5cd8Y%3DXSC9ZZJ12NcoqJYjSdnhrCBBGnxAgN6JMQDdxmkzFpwfUoReBK"
+    let foxNewsID = "1367531"
+    let cnnNewsID = "759251"
     var delegate: TweetManagerDelegate?
     
     func createQueryString(with searchVal: String){
@@ -37,7 +39,8 @@ class TweetManager{
             }
             
             if let validData = data {
-                print(String(data: validData, encoding: .utf8)!)
+//                print(String(data: validData, encoding: .utf8)!)
+                
                 
             } else {
                 print("data not valid or is nil")
@@ -52,8 +55,8 @@ class TweetManager{
     }
     
     
-//    func parseTwitterJSON(_ tweetData: Data) -> {
-//
-//    }
+    func parseTwitterJSON(_ tweetData: Data) -> {
+        
+    }
     
 }//EOC
