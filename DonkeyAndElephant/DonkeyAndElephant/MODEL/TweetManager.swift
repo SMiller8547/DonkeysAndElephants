@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TweetManagerDelegate{
-    func didReturnTweetData(_ data: Data)
+    func didReturnTweetData(_ tweetDetails: TweetDetails)
     func errorReturningTweetData(_ error: Error)
 }
 
@@ -19,8 +19,8 @@ class TweetManager{
     let cnnNewsID = "759251"
     var delegate: TweetManagerDelegate?
     
+    
     func createQueryString(with searchVal: String){
-        
     }
     
     func performAPIRequest(with urlString: String)  {
@@ -28,19 +28,26 @@ class TweetManager{
             fatalError("Invalid URL.")
         }
         
-        
         var urlRequest = URLRequest(url: validURL)
         urlRequest.addValue("Bearer \(bearer_token)", forHTTPHeaderField: "Authorization")
         
-        let task =  URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        let urlSession = URLSession(configuration: .default)
+        
+//        let task2 = urlSession.dataTask(with: urlRequest) { data, response, error in
+//                print("test")
+//        }
+        
+        let task =  urlSession.dataTask(with: urlRequest) { data, response, error in
             if error != nil {
                 print(error!.localizedDescription)
                 self.delegate?.errorReturningTweetData(error!)
             }
             
-            if let validData = data {
+            if let safeData = data {
 //                print(String(data: validData, encoding: .utf8)!)
-                
+                if let tweetData = self.parseTwitterJSON(safeData) {
+                    self.delegate?.didReturnTweetData(tweetData)
+                }
                 
             } else {
                 print("data not valid or is nil")
@@ -48,15 +55,24 @@ class TweetManager{
         }
         
         task.resume()
-        
-      
-        
-        
     }
     
     
-    func parseTwitterJSON(_ tweetData: Data) -> {
+    func parseTwitterJSON(_ tweetData: Foundation.Data) -> TweetDetails?{
+        let decoder = JSONDecoder()
         
+        do {
+            let decodedData = try decoder.decode(TweetJSON.self, from: tweetData)
+            let tweetData = decodedData.data[0].text
+            print(tweetData)
+            
+            
+            
+            return nil
+        } catch {
+            self.delegate?.errorReturningTweetData(error)
+            return nil
+        }
     }
     
 }//EOC

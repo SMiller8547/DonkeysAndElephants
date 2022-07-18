@@ -34,7 +34,7 @@ class LandingPage: UIViewController {
 
 //MARK: - TweetManagerDelegate Methods
 extension LandingPage: TweetManagerDelegate {
-    func didReturnTweetData(_ data: Data) {
+    func didReturnTweetData(_ data: TweetDetails) {
         
     }
     

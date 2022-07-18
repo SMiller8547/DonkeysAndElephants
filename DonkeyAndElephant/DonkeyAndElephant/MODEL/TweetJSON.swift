@@ -1,5 +1,5 @@
 //
-//  tweetJSONData.swift
+//  TweetJSONData.swift
 //  DonkeyAndElephant
 //
 //  Created by Sterling Miller on 7/17/22.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct tweetJSONData: Decodable {
-    let data: Data
+struct TweetJSON: Decodable {
+    let data: [Data]
 }
 
 struct Data: Decodable{
@@ -27,13 +27,13 @@ struct Context_annotations: Decodable {
 
 
 struct Domain: Decodable{
-    let id: Int
+    let id: String
     let name: String
-    let description: String
+    let description: String?
 }
 
 struct Entity: Decodable {
-    let id: Int
+    let id: String
     let name: String
-    let description: String
+    let description: String?
 }
