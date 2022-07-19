@@ -12,28 +12,25 @@ struct TweetJSON: Decodable {
 }
 
 struct Data: Decodable{
-    //Tags that represent content of tweet
-    let context_annotations: [Context_annotations]
-    //id for specific tweet
+//    let context_annotations: [Context_annotations]
     let id: String
-    //Actual text of tweet
     let text: String
 }
 
-struct Context_annotations: Decodable {
-    let domain: Domain
-    let entity: Entity
-}
-
-
-struct Domain: Decodable{
-    let id: String
-    let name: String
-    let description: String?
-}
-
-struct Entity: Decodable {
-    let id: String
-    let name: String
-    let description: String?
-}
+//struct Context_annotations: Decodable {
+//    let domain: Domain
+//    let entity: Entity
+//}
+//
+//
+//struct Domain: Decodable{
+//    let id: String
+//    let name: String
+//    let description: String?
+//}
+//
+//struct Entity: Decodable {
+//    let id: String
+//    let name: String
+//    let description: String?
+//}
