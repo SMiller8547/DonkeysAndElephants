@@ -11,18 +11,23 @@ class LandingPage: UIViewController {
 
     @IBOutlet weak var tweetKeywordTextBox: UITextField!
     var tweetManager = TweetManager()
+    var combinedTweetData: TweetDetails? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tweetManager.delegate = self
-        
+        tweetManager.generateTweetData()
     }
     
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         if let searchTerm = tweetKeywordTextBox.text {
-            tweetManager.performAPIRequest(with: searchTerm)
+            print("starting tweet run")
+            for val in combinedTweetData!.foxTweetData {
+                print(val.text)
+            }
+            
+            print("ending tweet run")
         } else {
             // TODO: Add default query call
         }
@@ -35,7 +40,8 @@ class LandingPage: UIViewController {
 //MARK: - TweetManagerDelegate Methods
 extension LandingPage: TweetManagerDelegate {
     func didReturnTweetData(_ data: TweetDetails) {
-        
+        print("combined value added")
+        combinedTweetData = data
     }
     
     func errorReturningTweetData(_ error: Error) {

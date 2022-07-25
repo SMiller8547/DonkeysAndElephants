@@ -7,5 +7,11 @@
 
 import Foundation
 class TweetDetails {
+    var cnnTweetData: [Data]
+    var foxTweetData: [Data]
     
+    init(cnnTweetData: [Data], foxTweetData: [Data]) {
+        self.cnnTweetData = cnnTweetData
+        self.foxTweetData = foxTweetData
+    }
 }
