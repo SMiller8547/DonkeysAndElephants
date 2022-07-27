@@ -26,7 +26,7 @@ class LandingPage: UIViewController {
             for val in combinedTweetData!.foxTweetData {
                 print(val.text)
             }
-            
+
             print("ending tweet run")
         } else {
             // TODO: Add default query call
@@ -40,7 +40,6 @@ class LandingPage: UIViewController {
 //MARK: - TweetManagerDelegate Methods
 extension LandingPage: TweetManagerDelegate {
     func didReturnTweetData(_ data: TweetDetails) {
-        print("combined value added")
         combinedTweetData = data
     }
     
