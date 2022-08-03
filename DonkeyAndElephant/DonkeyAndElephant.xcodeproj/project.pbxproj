@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31269A182899C03C003DCA31 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31269A172899C03C003DCA31 /* Constants.swift */; };
 		317D9408287A38B800980C78 /* TweetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D9407287A38B800980C78 /* TweetManager.swift */; };
 		31C5A7002878808A006D143F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C5A6FF2878808A006D143F /* AppDelegate.swift */; };
 		31C5A7022878808A006D143F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C5A7012878808A006D143F /* SceneDelegate.swift */; };
-		31C5A7042878808A006D143F /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C5A7032878808A006D143F /* LandingPage.swift */; };
+		31C5A7042878808A006D143F /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C5A7032878808A006D143F /* LandingPageViewController.swift */; };
 		31C5A7072878808A006D143F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31C5A7052878808A006D143F /* Main.storyboard */; };
 		31C5A7092878808B006D143F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31C5A7082878808B006D143F /* Assets.xcassets */; };
 		31C5A70C2878808B006D143F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31C5A70A2878808B006D143F /* LaunchScreen.storyboard */; };
@@ -39,11 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31269A172899C03C003DCA31 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		317D9407287A38B800980C78 /* TweetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetManager.swift; sourceTree = "<group>"; };
 		31C5A6FC2878808A006D143F /* DonkeyAndElephant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonkeyAndElephant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31C5A6FF2878808A006D143F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31C5A7012878808A006D143F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		31C5A7032878808A006D143F /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
+		31C5A7032878808A006D143F /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		31C5A7062878808A006D143F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31C5A7082878808B006D143F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31C5A70B2878808B006D143F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				31C5A72F287880AD006D143F /* VIEW */,
 				31C5A731287880DF006D143F /* CONTROLLER */,
 				31C5A7082878808B006D143F /* Assets.xcassets */,
+				31269A172899C03C003DCA31 /* Constants.swift */,
 				31C5A70D2878808B006D143F /* Info.plist */,
 			);
 			path = DonkeyAndElephant;
@@ -155,7 +158,7 @@
 		31C5A731287880DF006D143F /* CONTROLLER */ = {
 			isa = PBXGroup;
 			children = (
-				31C5A7032878808A006D143F /* LandingPage.swift */,
+				31C5A7032878808A006D143F /* LandingPageViewController.swift */,
 			);
 			path = CONTROLLER;
 			sourceTree = "<group>";
@@ -291,10 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31C5A7042878808A006D143F /* LandingPage.swift in Sources */,
+				31C5A7042878808A006D143F /* LandingPageViewController.swift in Sources */,
 				317D9408287A38B800980C78 /* TweetManager.swift in Sources */,
 				31CA56722884B32E001E77B4 /* TweetJSON.swift in Sources */,
 				31C5A7002878808A006D143F /* AppDelegate.swift in Sources */,
+				31269A182899C03C003DCA31 /* Constants.swift in Sources */,
 				31CA56742885B83A001E77B4 /* TweetDetails.swift in Sources */,
 				31C5A7022878808A006D143F /* SceneDelegate.swift in Sources */,
 			);

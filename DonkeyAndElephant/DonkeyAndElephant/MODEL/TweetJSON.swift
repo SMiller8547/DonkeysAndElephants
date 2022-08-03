@@ -11,7 +11,7 @@ struct TweetJSON: Decodable {
     let data: [Data]
 }
 
-struct Data: Decodable{
+struct Data: Decodable {
 //    let context_annotations: [Context_annotations]
     let id: String
     let text: String

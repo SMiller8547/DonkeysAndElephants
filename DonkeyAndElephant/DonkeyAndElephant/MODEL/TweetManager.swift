@@ -33,9 +33,8 @@ struct TweetManager{
         }
     }
     
-    
     func performAPIRequest(with user: String) async throws -> TweetJSON {
-        let twitterAPI = "https://api.twitter.com/2/users/\(user)/tweets?max_results=100&tweet.fields=context_annotations&exclude=retweets,replies"
+        let twitterAPI = "https://api.twitter.com/2/users/\(user)/tweets?max_results=10&tweet.fields=context_annotations&exclude=retweets,replies"
         let url = URL(string: twitterAPI)!
         var urlRequest = URLRequest(url: url)
         let urlSession = URLSession(configuration: .default)
@@ -44,10 +43,6 @@ struct TweetManager{
         //Do catch optional as I am throwing error up call stack.
         let (data, _) = try await urlSession.data(for: urlRequest)
         let tweetJSON = parseTwitterJSON(data)!
-        
-        for val in tweetJSON.data {
-            print(val.text)
-        }
         return tweetJSON
     }
     
