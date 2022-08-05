@@ -50,7 +50,8 @@ class LandingPageViewController: UIViewController {
         }
     }
     
-    func filterShownTweets(with filterTerm: String? = nil){
+    //FIXME: Need to ignore case on filterTerm
+    func filterShownTweets(with filterTerm: String = ""){
         cnnFilteredTweets = []
         foxFilteredTweets = []
         
@@ -59,14 +60,14 @@ class LandingPageViewController: UIViewController {
             return
         }
         
-        if let validFilter = filterTerm {
+        if filterTerm != "" {
             for val in combinedTweetData.cnnTweetData {
-                if val.text.contains(validFilter) {
+                if val.text.localizedCaseInsensitiveContains(filterTerm) {
                     cnnFilteredTweets.append(val.text)
                 }
             }
             for val in combinedTweetData.foxTweetData {
-                if val.text.contains(validFilter) {
+                if val.text.localizedCaseInsensitiveContains(filterTerm) {
                     foxFilteredTweets.append(val.text)
                 }
             }
@@ -89,9 +90,9 @@ class LandingPageViewController: UIViewController {
 
 //MARK: - TableViewDelegate
 extension LandingPageViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//       //open webpage with tweetURL 
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       //open webpage with tweetURL
+    }
 }
 
 

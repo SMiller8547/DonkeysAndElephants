@@ -14,7 +14,7 @@ protocol TweetManagerDelegate{
 
 struct TweetManager{
     let bearer_token = "AAAAAAAAAAAAAAAAAAAAAIEfegEAAAAAFZjI%2FV4JRca7WxnNea%2FG9u5cd8Y%3DXSC9ZZJ12NcoqJYjSdnhrCBBGnxAgN6JMQDdxmkzFpwfUoReBK"
-    let cnnNewsID = "759251" //759251
+    let cnnNewsID = "759251"
     let foxNewsID = "1367531"
     var delegate: TweetManagerDelegate?
     
@@ -42,8 +42,12 @@ struct TweetManager{
         urlRequest.addValue("Bearer \(bearer_token)", forHTTPHeaderField: "Authorization")
         //Do catch optional as I am throwing error up call stack.
         let (data, _) = try await urlSession.data(for: urlRequest)
-        let tweetJSON = parseTwitterJSON(data)!
-        return tweetJSON
+        if let tweetJSON = parseTwitterJSON(data) {
+            return tweetJSON
+        } else {
+            fatalError("JSON not valid")
+        }
+        
     }
     
     
