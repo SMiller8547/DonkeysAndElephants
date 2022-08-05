@@ -16,7 +16,18 @@ class LandingPageViewController: UIViewController {
     
     
     var tweetManager = TweetManager()
-    var combinedTweetData: TweetDetails? = nil
+    var combinedTweetData: TweetDetails? = nil {
+        didSet{
+            Task{
+                await MainActor.run {
+                    filterShownTweets()
+                }
+            }
+        }
+    }
+    var cnnFilteredTweets: [String] = []
+    var foxFilteredTweets: [String] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,22 +39,49 @@ class LandingPageViewController: UIViewController {
         
         foxTableView.delegate = self
         foxTableView.dataSource = self
-       
-        
     }
     
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
-//        if let searchTerm = tweetKeywordTextBox.text {
-//            print("starting tweet run")
-//            for val in combinedTweetData!.foxTweetData {
-//                print(val.text)
-//            }
-//
-//            print("ending tweet run")
-//        } else {
-//            // TODO: Add default query call
-//        }
+        if let searchTerm = tweetKeywordTextBox.text {
+            filterShownTweets(with: searchTerm)
+        } else {
+            filterShownTweets()
+        }
+    }
+    
+    func filterShownTweets(with filterTerm: String? = nil){
+        cnnFilteredTweets = []
+        foxFilteredTweets = []
+        
+        guard let combinedTweetData = combinedTweetData else {
+            print("Error filtering tweets")
+            return
+        }
+        
+        if let validFilter = filterTerm {
+            for val in combinedTweetData.cnnTweetData {
+                if val.text.contains(validFilter) {
+                    cnnFilteredTweets.append(val.text)
+                }
+            }
+            for val in combinedTweetData.foxTweetData {
+                if val.text.contains(validFilter) {
+                    foxFilteredTweets.append(val.text)
+                }
+            }
+        } else {
+            for val in combinedTweetData.cnnTweetData {
+                cnnFilteredTweets.append(val.text)
+            }
+            for val in combinedTweetData.foxTweetData {
+                foxFilteredTweets.append(val.text)
+            }
+        }
+                
+        cnnTableView.reloadData()
+        foxTableView.reloadData()
+
     }
     
 
@@ -51,34 +89,32 @@ class LandingPageViewController: UIViewController {
 
 //MARK: - TableViewDelegate
 extension LandingPageViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("you tapped me")
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//       //open webpage with tweetURL 
+//    }
 }
 
 
 //MARK: - TableViewDataSource
 extension LandingPageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if tableView == cnnTableView {
-            return combinedTweetData?.cnnTweetData.count ?? 5
+            return cnnFilteredTweets.count
         }
-        return combinedTweetData?.foxTweetData.count ?? 5
+        return foxFilteredTweets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if tableView == cnnTableView {
             let cnnCell = tableView.dequeueReusableCell(withIdentifier: Constants.cnnCell, for: indexPath)
             var content = cnnCell.defaultContentConfiguration()
-            content.text = "CNN Cell"
+            content.text = cnnFilteredTweets[indexPath.row]
             cnnCell.contentConfiguration = content
             return cnnCell
         } else {
             let foxCell = tableView.dequeueReusableCell(withIdentifier: Constants.foxCell, for: indexPath)
             var content = foxCell.defaultContentConfiguration()
-            content.text = "Fox Cell"
+            content.text = foxFilteredTweets[indexPath.row]
             foxCell.contentConfiguration = content
             return foxCell
         }
@@ -92,9 +128,6 @@ extension LandingPageViewController: UITableViewDataSource {
 extension LandingPageViewController: TweetManagerDelegate {
     func didReturnTweetData(_ tweetDetails: TweetDetails) {
         combinedTweetData = tweetDetails
-//        for tweet in combinedTweetData!.foxTweetData {
-//            print(tweet.text)
-//        }
     }
     
     func errorReturningTweetData(_ error: Error) {

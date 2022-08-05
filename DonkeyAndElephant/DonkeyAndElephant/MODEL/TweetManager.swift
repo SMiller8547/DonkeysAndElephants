@@ -34,7 +34,7 @@ struct TweetManager{
     }
     
     func performAPIRequest(with user: String) async throws -> TweetJSON {
-        let twitterAPI = "https://api.twitter.com/2/users/\(user)/tweets?max_results=10&tweet.fields=context_annotations&exclude=retweets,replies"
+        let twitterAPI = "https://api.twitter.com/2/users/\(user)/tweets?max_results=100&tweet.fields=context_annotations&exclude=retweets,replies"
         let url = URL(string: twitterAPI)!
         var urlRequest = URLRequest(url: url)
         let urlSession = URLSession(configuration: .default)
