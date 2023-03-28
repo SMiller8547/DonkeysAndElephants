@@ -13,7 +13,7 @@ protocol TweetManagerDelegate{
 }
 
 struct TweetManager{
-    let bearer_token = "AAAAAAAAAAAAAAAAAAAAAIEfegEAAAAAFZjI%2FV4JRca7WxnNea%2FG9u5cd8Y%3DXSC9ZZJ12NcoqJYjSdnhrCBBGnxAgN6JMQDdxmkzFpwfUoReBK"
+    let bearer_token = "TokenRevoked"
     let cnnNewsID = "759251"
     let foxNewsID = "1367531"
     var delegate: TweetManagerDelegate?
